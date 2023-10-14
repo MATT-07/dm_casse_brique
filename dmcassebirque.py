@@ -4,18 +4,6 @@ import pyxel, random
 
 # taille de la fenetre 128x128 pixels
 # ne pas modifier
-pyxel.init(128, 128, title="Nuit du c0de")
-
-# position initiale du plateforme
-plateforme_x = 50
-plateforme_y = 100
-
-import pyxel, random
-
-# pip install -U pyxel
-
-# taille de la fenetre 128x128 pixels
-# ne pas modifier
 pyxel.init(128, 128, title="Casse Brique")
 
 # position initiale du plateforme
@@ -177,4 +165,3 @@ def draw():
 # creation des briques
 briques = creation_brique(briques)
 pyxel.run(update, draw)
-
