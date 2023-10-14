@@ -24,7 +24,9 @@ forceHorizontal = 0
 vie_joueur = 3
 
 def plateforme_deplacement(x):
-    """déplacement avec les touches de directions"""
+    """Fonction qui gére la plateforme avec les flèches directionnelles
+    Ne prend rien en paramètre
+    Renvoie la position x de la platforme"""
     if pyxel.btn(pyxel.KEY_RIGHT):
         if x < 120:
             x = x + 2
@@ -56,7 +58,12 @@ def creation_brique(briques):
 
 
 def collision(balle_x, balle_y, forceVertical, briques, forceHorizontal):
-    """fonction qui gère les collisions entre la balle et les briques"""
+    """fonction qui gère les collisions entre la balle et les briques, si la balle touche une brique, la brique disparait.
+    Prend en entré la position x et y de la balle, sa direction avec les variables forceverticale et forceHorizontale, 
+     et la liste brique
+     Return les briques restantes dans la liste et la direction de la balle avec les variables forceverticale et 
+     forceHorizontale. """
+
     for b in briques:
         # si la balle tape au dessus de la brique
         if balle_x + 2 <= b[0] + 12 and balle_y + 2 <= b[1] + 2 and balle_x + 2 >= b[0] and balle_y + 2 >= b[1] :
@@ -99,7 +106,9 @@ def collision(balle_x, balle_y, forceVertical, briques, forceHorizontal):
 # == UPDATE
 # =========================================================
 def update():
-    """mise à jour des variables (30 fois par seconde)"""
+    """mise à jour des variables (30 fois par seconde)
+    C'est la fonction qui gére la jeu
+    Ne prend aucun paramètre et ne renvoie rien"""
 
     global plateforme_x, plateforme_y, balle_x, balle_y, forceVertical, forceHorizontal, briques, vie_joueur, vie
 
@@ -134,7 +143,7 @@ def update():
 # == DRAW
 # =========================================================
 def draw():
-    """création des objets (30 fois par seconde)"""
+    """dessine les objets du jeux et se met à jour 30 fois par seconde"""
 
     # vide la fenetre
     pyxel.cls(6)
